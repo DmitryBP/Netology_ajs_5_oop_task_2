@@ -215,4 +215,4 @@ plugins: [
 
     npm run prepare     
 
-    npx husky add .husky/pre-commit "npm run lint && npm test" 
+    npx husky add .husky/pre-commit "npm run lint && npm test" # Netologi-ajs-5-hw-task2
