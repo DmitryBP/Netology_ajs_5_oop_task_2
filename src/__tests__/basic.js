@@ -1,57 +1,31 @@
-// import Cheracter from '../js/Cheracter.js';
-
-class Cheracter {
-  constructor(name, type) {
-    this.name = name;
-    this.type = type;
-    this.health = 100;
-    this.level = 1;
-    this.attack;
-    this.defence;
-  }
-
-  levelUp() {
-    if (this.health > 0) {
-      this.level += 1;
-      this.attack *= 1.2;
-      this.defence *= 1.2;
-      this.health = 100;
-    } else throw new Error('Персонаж мертв');
-  }
-
-  damage(points) {
-    if (this.health >= 0) {
-      this.health -= points * (1 - this.defence / 100);
-    } else throw new Error('Персонаж мертв');
-  }
-}
+import Cheracter from '../js/Cheracter.js';
+import Bowerman from '../js/Bowerman.js';
 
 test('Ошибка при повышении уровня метвого игрока', () => {
   expect(() => {
     const vasia = new Cheracter('Vasia', 'Bowerman');
-    vasia.health = 100;
-    vasia.evelUp();
+    vasia.health = 0;
+    vasia.levelUp();
   }).toThrow();
 });
 
-test('test', () => {
-  const sum = 2 + 2;
-  console.log(sum);
-  expect(sum).toBe(4);
+test('Проверка нанесения урона', () => {
+  const bowerman1 = new Bowerman('Boris', 'Bowerman');
+  bowerman1.damage(20);
+  expect(bowerman1.health).toBe(85);
 });
 
-// test('Расчет урона', () => {
-//   const test = new Cheracter('Vasia1', 'Bowerman');
+test('Проверка повышения уровня', () => {
+  const bowerman1 = new Bowerman('Boris', 'Bowerman');
+  bowerman1.damage(20);
+  bowerman1.levelUp();
+  expect(bowerman1.health).toBe(100);
+});
 
-//   expect(test.health).toBe(85);
-// });
-
-// test('Проверяем что класс корректно создает объект', () => {
-//   const expectedObject = {
-//     name: 'Ibrahim',
-//     type: 'Bowman',
-//     health: 100,
-//     level: 1,
-//   };
-//   expect(new Cheracter('Лучник', 'Bowman')).toEqual(expectedObject);
-// });
+test('Проверка нанесение урона мертвому игроку', () => {
+  const bowerman1 = new Bowerman('Boris', 'Bowerman');
+  bowerman1.health = -1;
+  expect(() => {
+    bowerman1.damage(10);
+  }).toThrow();
+});
