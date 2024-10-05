@@ -1,12 +1,9 @@
-import './Cheracter.js';
-import Bowerman from './Bowerman.js';
+/* eslint-disable no-unused-vars */
 
-const bowerman = new Bowerman('Boris', 'Bowerman');
-
-console.log(bowerman);
-
-bowerman.health = 100;
-console.log(`helth - ${bowerman.health}`);
-bowerman.levelUp();
-
-console.log(bowerman);
+import Bowman from "./Bowman";
+import Character from "./Character";
+import Deamon from "./Daemon";
+import Magician from "./Magician";
+import Swordsman from "./Swordsman";
+import Undead from "./Undead";
+import Zombie from "./Zombie";
