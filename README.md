@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/rcrcnp4lega4awk3?svg=true)](https://ci.appveyor.com/project/DmitryBP/netology-ajs-5-oop-task-2)
 ## Методы
 
 ### Легенда
